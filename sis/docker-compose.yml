@@ -25,8 +25,9 @@ services:
   cache:
     build: ./cache
     environment:
-      - CACHE_SIZE=1000
-      - CACHE_TTL=0
+      - CACHE_SIZE=${CACHE_SIZE:-1000}
+      - CACHE_TTL=${CACHE_TTL:-0}
+      - CACHE_POLICY=${CACHE_POLICY:-LRU}
       - LLM_URL=http://llm:5002/answer
       - SCORE_URL=http://score:5003/score
       - STORE_SAVE_URL=http://storage:5004/save_or_update
@@ -38,10 +39,12 @@ services:
     build: ./traffic_generator
     environment:
       - DATASET_PATH=/app/dataset/train.csv
-      - RATE=0.2
+      - RATE=${RATE:-0.2}
+      - DIST=${DIST:-exponential}
       - CACHE_URL=http://cache:5001/query
       - COL_Q=question_content
       - COL_A=best_answer
     volumes:
       - ./dataset:/app/dataset:ro
     depends_on: [cache]
+
