@@ -73,7 +73,12 @@ docker compose logs -f score
 ```bash
 docker compose logs -f storage
 ```
+# Cambios de politicas y distribuciones del sistema
 
+```bash
+CACHE_POLICY=<politoca o utilizar(FIFO o LRU)> CACHE_SIZE=<tamaño del cache> docker compose up -d cache
+DIST=<distribucion a ocupar> RATE=<rate de consultas(ver dependiendo de el plan de geminis)> docker compose up -d traffic
+```
 # Verificación en MongoDB
 
 Ingresar al contenedor de MongoDB:
@@ -88,6 +93,7 @@ Dentro del shell:
 use yahoo_db
 db.answers.countDocuments()
 db.answers.findOne()
+db.answers.find().limit(<cantidad de consultas a ver>).pretty()
 ```
 Esto mostrará documentos con la pregunta, respuesta del dataset, respuesta del LLM, hits, misses y score.
 
