@@ -36,6 +36,7 @@ cd <carpeta raiz del repositorio>
 ```
 - Colocar el dataset
 Descargar el dataset train_10k.csv y dejarlo en la carpeta dataset/.
+o ocupar el del repositorio
 
 - Configurar variables de entorno
 Crear un archivo .env en la raíz del proyecto:
