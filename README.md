@@ -39,10 +39,9 @@ Descargar el dataset train_10k.csv y dejarlo en la carpeta dataset/.
 o ocupar el del repositorio
 
 - Configurar variables de entorno
-Crear un archivo .env en la raíz del proyecto:
-
+Crear un archivo .env en la raíz del proyecto y poner:
 ### API Key de Gemini
-GEMINI_API_KEY=tu_api_key_aqui
+GEMINI_API_KEY=<tu_api_key_aqui>
 
 - Levantar el sistema
 ```bash
