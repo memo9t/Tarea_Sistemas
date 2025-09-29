@@ -9,7 +9,7 @@ if not GEMINI_KEY:
     raise ValueError("Debes definir la variable de entorno GEMINI_API_KEY con tu API key de Google AI Studio")
 
 def ask_gemini(prompt: str) -> str:
-    url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
+    url = "https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent"
     headers = {"Content-Type": "application/json"}
     payload = {"contents": [{"parts": [{"text": prompt}]}]}
     r = requests.post(url, params={"key": GEMINI_KEY}, headers=headers, json=payload, timeout=60)
